@@ -30,4 +30,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
+    Route::get('suggested', 'RecipesController@suggested');
+    Route::resource('recipes', 'RecipesController');
+
 });
