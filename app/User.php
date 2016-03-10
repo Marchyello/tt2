@@ -24,12 +24,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function recipe ()
+    public function recipe()
     {
         return $this->hasMany('tt2\Recipe');
     }
 
-    public function comment ()
+    public function comment()
     {
         return $this->hasMany('tt2\Comment');
     }

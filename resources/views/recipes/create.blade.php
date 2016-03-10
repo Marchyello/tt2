@@ -5,7 +5,9 @@
     <hr/>
 
     {!! Form::open(['url' => 'recipes']) !!}
-        @include('recipes.form')
+        @include('recipes.form', ['buttonText' => 'Publicēt'])
     {!! Form::close() !!}
+
+    @include('errors.list')
 
 @stop

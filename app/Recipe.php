@@ -2,7 +2,6 @@
 
 namespace tt2;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
@@ -13,19 +12,21 @@ class Recipe extends Model
         'excerpt',
     ];
 
-    public function user ()
+    /*protected $dates = ['created_at'];*/
+
+    public function user()
     {
         return $this->belongsTo('tt2\User');
     }
 
-    public function comment ()
+    public function comment()
     {
         return $this->hasMany('tt2\Comment');
     }
 
-    public function setCreatedAtAttribute($date)
+    public function generateExcerpt()
     {
-        $this->attributes['created_at'] = Carbon::parse($date);
+        //Izveidot funkciju, kas idrukā receptes pirmos 20 simbolus or smth.
     }
 
     /*public function scopeCreated($query)

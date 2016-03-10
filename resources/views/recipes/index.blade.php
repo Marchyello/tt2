@@ -11,7 +11,7 @@
                 <a href="{{ url ('recipes', $recipe->id) }}">{{ $recipe->title }}</a>
             </h2>
 
-            <div class="body">{{ $recipe->body }}</div>
+            <div class="body">{{ $recipe->description }}</div>
         </article>
     @endforeach
 @stop
