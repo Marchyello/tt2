@@ -17,12 +17,11 @@ class CreateRecipeRequest extends Request
      */
     public function authorize()
     {
-        /*$recipe = Recipe::findOrFail($this->input('id'));
+        $recipe = Recipe::findOrFail($this->route()->parameter('recipes'));
 
-        if (Auth::user()->id !== $recipe->user_id)
-            return false;
-        else*/
-            return true;
+        $this->error = 'Damn, Daniel!';
+
+        return Auth::user()->id === $recipe->user_id;
     }
 
     /**

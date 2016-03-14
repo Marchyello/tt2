@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('profile', 'UsersController@index');
     Route::resource('recipes', 'RecipesController');
+    Route::get('exceptions/403', 'RecipesController@error403');
     Route::get('else', 'RecipesController@about');
 });
 

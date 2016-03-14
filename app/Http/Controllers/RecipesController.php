@@ -10,6 +10,10 @@ use tt2\Recipe;
 
 class RecipesController extends Controller
 {
+    public function suggested()
+    {
+        return view('suggested');
+    }
 
     public function index()
     {
@@ -53,6 +57,13 @@ class RecipesController extends Controller
         $recipe->update($request->all());
 
         return redirect('recipes');
+    }
+
+    public function error403()
+    {
+        $customError = Requests\Request::getError();
+
+        return view('errors.403')->with('customError', $customError);
     }
 
 }
