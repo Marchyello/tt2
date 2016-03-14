@@ -2,6 +2,10 @@
 
 namespace tt2\Http\Requests;
 
+use Auth;
+use Illuminate\Support\Facades\Input;
+use tt2\Recipe;
+use tt2\User;
 use tt2\Http\Requests\Request;
 
 class CreateRecipeRequest extends Request
@@ -13,7 +17,12 @@ class CreateRecipeRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        /*$recipe = Recipe::findOrFail($this->input('id'));
+
+        if (Auth::user()->id !== $recipe->user_id)
+            return false;
+        else*/
+            return true;
     }
 
     /**

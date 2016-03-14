@@ -31,12 +31,14 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::get('suggested', 'RecipesController@suggested');
-    Route::resource('recipes', 'RecipesController');
 
-});
 
-Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+    Route::get('profile', 'UsersController@index');
+    Route::resource('recipes', 'RecipesController');
+    Route::get('else', 'RecipesController@about');
 });
+
