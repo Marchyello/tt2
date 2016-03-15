@@ -24,14 +24,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function recipe()
+    public function recipes()
     {
         return $this->hasMany('tt2\Recipe');
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany('tt2\Comment');
     }
 
+    public function isAdmin()
+    {
+        //Pārbauda vai lietotājam ir Admin loma
+    }
 }

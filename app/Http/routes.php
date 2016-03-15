@@ -27,19 +27,17 @@
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('suggested');
     });
 
     Route::get('suggested', 'RecipesController@suggested');
-
-
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
 
     Route::get('profile', 'UsersController@index');
     Route::resource('recipes', 'RecipesController');
-    Route::get('exceptions/403', 'RecipesController@error403');
+    Route::get('exception', 'RecipesController@exception');
     Route::get('else', 'RecipesController@about');
 });
 

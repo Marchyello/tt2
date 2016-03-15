@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>MM receptes</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -74,7 +74,15 @@
         </div>
     </nav>
 <div class="container">
+
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ Session::get('flash_message') }}
+        </div>
+    @endif
+
     @yield('content')
+
 </div>
 
     <!-- JavaScripts -->

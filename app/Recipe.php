@@ -24,15 +24,22 @@ class Recipe extends Model
         return $this->hasMany('tt2\Comment');
     }
 
-    public function generateExcerpt()
+    public function scopeCreatedAt($query)
     {
-        //Izveidot funkciju, kas idrukā receptes pirmos 20 simbolus or smth.
+        $query->orderBy('created_at', 'desc');
     }
 
-    /*public function scopeCreated($query)
+    //Izveidot funkciju, kas idrukā receptes pirmos 20 simbolus or smth.
+    public static function generateExcerpt($description)
     {
-        $query->where('created_at', ''
-    }*/
+        if (strlen($description) < 41){
+            $excerpt = $description;
+        }
+        else {
+            $excerpt = substr($description, 0, 40) . '...';
+        }
+        return $excerpt;
+    }
 
 }
 

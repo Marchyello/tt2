@@ -8,9 +8,18 @@ abstract class Request extends FormRequest
 {
     public static function getError()
     {
-        $error = 'Sasodīts, ' . \Auth::user()->name . ', jau atkal 403!';
+        if (\Auth::user()) {
+            $error = 'Sasodīts, ' . \Auth::user()->name . ', jau atkal 403!';
 
-        return $error;
+            return $error;
+        }
+
+        else {
+            $error = 'Sasodīts, Sātan, jau atkal 403!';
+
+            return $error;
+        }
+
     }
 
     public function forbiddenResponse()

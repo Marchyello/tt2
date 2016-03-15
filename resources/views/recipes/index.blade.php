@@ -5,13 +5,5 @@
 
     <hr/>
 
-    @foreach($recipes as $recipe)
-        <article>
-            <h2>
-                <a href="{{ url ('recipes', $recipe->id) }}">{{ $recipe->title }}</a>
-            </h2>
-
-            <div class="body">{{ $recipe->description }}</div>
-        </article>
-    @endforeach
+    @include('partials.recipesList')
 @stop

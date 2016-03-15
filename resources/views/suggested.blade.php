@@ -3,8 +3,8 @@
 @section('content')
     <h1>MM receptes</h1>
     <hr/>
-    <h2>Sveicnāti vietnē "MM receptes"!</h2>
-    <h3>Piedāvājam Jums apskatei dažas no mūsu redaktora iecienītajām receptēm. Lai skatītu un komentētu mūsu lietotāju veidotās receptes, kā arī pievienotu savas receptes, lūdzam reģistrēties!</h3>
+    <h2>Sveicināti vietnē "MM receptes"!</h2>
+    <h3>Piedāvājam apskatei mūsu redaktora iecienītāko recepti. Pilnvērtīgai dalībai vietnē, lūdzam reģistrēties!</h3>
     <hr/>
     <h4>Diētiskie kāpostu tīteņi</h4>
     <ul>
