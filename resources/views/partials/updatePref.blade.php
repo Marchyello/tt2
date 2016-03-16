@@ -1,0 +1,1 @@
+{!! Form::open(['method' => 'PATCH', 'action' => 'PreferencesController@updatePreference']) !!}

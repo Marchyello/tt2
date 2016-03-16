@@ -18,6 +18,7 @@
     <style>
         body {
             font-family: 'Lato';
+            @include('partials.bgcCheck')
         }
 
         .fa-btn {

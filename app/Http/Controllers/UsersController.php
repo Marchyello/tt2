@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 
 use tt2\Http\Requests;
+use tt2\Preference;
 use tt2\Recipe;
 
 class UsersController extends Controller
@@ -26,4 +27,6 @@ class UsersController extends Controller
             ->with('user', $user)
             ->with('recipes', $recipes);
     }
+
+
 }

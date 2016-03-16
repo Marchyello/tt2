@@ -2,6 +2,7 @@
 
 namespace tt2;
 
+use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -32,6 +33,20 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany('tt2\Comment');
+    }
+
+    public function preferences()
+    {
+        return $this->hasOne('tt2\Preference');
+    }
+
+    public function hasPreferences()
+    {
+        $user = Auth::user();
+        if (! $user->preferences)
+            return false;
+        else
+            return true;
     }
 
     public function isAdmin()

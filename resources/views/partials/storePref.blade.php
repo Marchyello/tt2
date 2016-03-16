@@ -1,0 +1,1 @@
+{!! Form::open(['method' => 'POST', 'action' => 'PreferencesController@storePreference']) !!}
