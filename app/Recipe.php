@@ -29,7 +29,6 @@ class Recipe extends Model
         $query->orderBy('created_at', 'desc');
     }
 
-    //Izveidot funkciju, kas idrukā receptes pirmos 20 simbolus or smth.
     public static function generateExcerpt($description)
     {
         if (strlen($description) < 41){

@@ -4,6 +4,7 @@ namespace tt2\Http\Requests;
 
 use Auth;
 use Illuminate\Support\Facades\Input;
+use Session;
 use tt2\Recipe;
 use tt2\User;
 use tt2\Http\Requests\Request;
@@ -17,12 +18,16 @@ class RecipeRequest extends Request
      */
     public function authorize()
     {
+        #Redaktoriem ļauts rediģēt/dzēst svešus ierakstus
+        if (Auth::user()->role == 1){
+            return true;
+        }
+
         $methods = $this->route()->getMethods();
 
-        #Ja notiek ieraksta labošana, pārbauda, vai ieraksts pieder lietotājam
-        if ($methods[0] == 'PUT'){
+        #Ja notiek ieraksta labošana vai dzēšana, pārbauda, vai ieraksts pieder lietotājam
+        if ($methods[0] == 'PUT' || $methods[0] == 'DELETE'){
             $recipe = Recipe::findOrFail($this->route()->parameter('recipes'));
-
             return Auth::user()->id === $recipe->user_id;
         }
 
@@ -45,9 +50,14 @@ class RecipeRequest extends Request
      */
     public function rules()
     {
-        return [
-            'title' => 'required|min:3',
-            'description' => 'required',
-        ];
+        if (Auth::user()->role === 1){
+            return [];
+        }
+        else {
+            return [
+                'title' => 'required|min:3',
+                'description' => 'required',
+            ];
+        }
     }
 }

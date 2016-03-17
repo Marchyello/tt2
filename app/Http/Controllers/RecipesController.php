@@ -63,6 +63,8 @@ class RecipesController extends Controller
     {
         $recipe = Recipe::findOrFail($id);
 
+        $recipe->excerpt = Recipe::generateExcerpt($request->get('description'));
+
         $recipe->update($request->all());
 
         Session::flash('flash_message', 'Recepte izlabota');
@@ -70,7 +72,7 @@ class RecipesController extends Controller
         return redirect('recipes');
     }
 
-    public function destroy($id)
+    public function destroy($id, RecipeRequest $request)
     {
         $recipe = Recipe::findOrFail($id);
 

@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $fillable = [
+      'content',
+    ];
 
     public function user ()
     {
@@ -15,6 +18,17 @@ class Comment extends Model
     public function recipe ()
     {
         return $this->belongsTo('tt2\Recipe');
+    }
+
+    public static function generateExcerpt($content)
+    {
+        if (strlen($content) < 41){
+            $excerpt = $content;
+        }
+        else {
+            $excerpt = substr($content, 0, 40) . '...';
+        }
+        return $excerpt;
     }
 
 }

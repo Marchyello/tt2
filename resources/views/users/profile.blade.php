@@ -2,7 +2,12 @@
 
 @section('content')
     <h1>
-        Profils: {{ $user->name }}
+        @if(Auth::user()->role === 1)
+            Redaktors:
+        @else
+            Profils:
+        @endif
+            {{ $user->name }}
             <a href="{{ url('profile/preferences') }}" class="btn btn-info">Iestatījumi</a>
     </h1>
     <hr/>

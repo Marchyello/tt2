@@ -9,7 +9,7 @@ abstract class Request extends FormRequest
     public static function getError()
     {
         if (\Auth::user()) {
-            $error = 'Sasodīts, ' . \Auth::user()->name . ', jau atkal 403!';
+            $error = 'Kļūda 403, nav atļauta piekļuve';
 
             return $error;
         }
@@ -24,6 +24,6 @@ abstract class Request extends FormRequest
 
     public function forbiddenResponse()
     {
-        return redirect()->action('RecipesController@error403');
+        return redirect()->action('RecipesController@exception');
     }
 }

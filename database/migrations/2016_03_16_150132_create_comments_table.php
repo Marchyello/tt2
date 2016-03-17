@@ -16,14 +16,19 @@ class CreateCommentsTable extends Migration
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('recipe_id')->unsigned();
             $table->text('content');
             $table->string('excerpt');
             $table->timestamps();
 
             $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+            $table->foreign('recipe_id')
+                  ->references('id')
+                  ->on('recipes')
+                  ->onDelete('cascade');
         });
     }
 
