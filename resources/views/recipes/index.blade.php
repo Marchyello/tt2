@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h1>Receptes</h1>
+    <h1>{{ trans('recipe.recipes') }}</h1>
 
     <hr/>
 

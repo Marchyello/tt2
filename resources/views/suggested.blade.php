@@ -1,20 +1,20 @@
 @extends('master')
 
 @section('content')
-    <h1>MM receptes</h1>
+    <h1>{{ trans('recipe.mmRecipes') }}</h1>
     <hr/>
-    <h2>Sveicināti vietnē "MM receptes"!</h2>
-    <h3>Piedāvājam apskatei mūsu redaktora iecienītāko recepti. Pilnvērtīgai dalībai vietnē, lūdzam reģistrēties!</h3>
+    <h2>{{ trans('recipe.heading1') }}</h2>
+    <h3>{{ trans('recipe.heading2') }}</h3>
     <hr/>
-    <h4>Diētiskie kāpostu tīteņi</h4>
+    <h4>{{ trans('recipe.heading3') }}</h4>
     <ul>
-        <li>350 g maltas vistas filejas</li>
-        <li>130 g svaigu kāpostu</li>
-        <li>70 g rīsu</li>
+        <li>{{ trans('recipe.listed1') }}</li>
+        <li>{{ trans('recipe.listed2') }}</li>
+        <li>{{ trans('recipe.listed3') }}</li>
     </ul>
     <ol>
-        <li>Rīsus ber katlā, pārlej ar ūdeni tā, lai tas pārklāj tos 1,5 cm līmenī.</li>
-        <li>Vistas fileju samaļ gaļas maļamajā mašīnā vai virtuves kombainā.</li>
-        <li>Kāpostus sīki sagriež.</li>
+        <li>{{ trans('recipe.unlisted1') }}</li>
+        <li>{{ trans('recipe.unlisted2') }}</li>
+        <li>{{ trans('recipe.unlisted3') }}</li>
     </ol>
 @endsection

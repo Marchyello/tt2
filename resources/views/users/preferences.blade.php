@@ -7,14 +7,14 @@
         @include('partials.storePref')
     @endif
     {!! csrf_field() !!}
-    <p>Valoda:</p>
-        {!! Form::select('language', ['0' => 'Latviešu', '1' => 'English']) !!}
+    <p>{{ trans('user.language') }}</p>
+        {!! Form::select('language', ['lv' => trans('user.latvian'), 'en' => trans('user.english')]) !!}
     <br>
     <br>
-    <p>Fona krāsa</p>
-        {!! Form::select('background', ['#ffffff' => 'Balts', '#b3ffcc' => 'Zaļš', '#ffe6ff' => 'Rozā', '#ffffb3' => 'Dzeltens']) !!}
+    <p>{{ trans('user.background') }}</p>
+        {!! Form::select('background', ['#ffffff' => trans('user.white'), '#b3ffcc' => trans('user.green'), '#ffe6ff' => trans('user.pink'), '#ffffb3' => trans('user.yellow')]) !!}
         <br>
         <br>
-        {!! Form::submit('Saglabāt', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit(trans('user.save'), ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
 @endsection

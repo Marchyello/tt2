@@ -9,16 +9,19 @@
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'Roboto';
             @include('partials.bgcCheck')
+        }
+
+        .hang {
+            margin-top: -20px;
         }
 
         .fa-btn {
@@ -41,22 +44,24 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/images/mmm.png" alt="MM Receptes">
+                    <div class="hang">
+                    <img src="/images/mmm.png" alt="{{ trans('recipe.mmRecipes') }}">
+                    </div>
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/recipes') }}">Receptes</a></li>
+                    <li><a href="{{ url('/recipes') }}">{{ trans('recipe.recipes') }}</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">{{ trans('authorize.login') }}</a></li>
+                        <li><a href="{{ url('/register') }}">{{ trans('authorize.register') }}</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,9 +69,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('recipes/create') }}">Jauna recepte!</a></li>
-                                <li><a href="{{ url('/profile') }}">Profils</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Atslēgties</a></li>
+                                <li><a href="{{ url('recipes/create') }}">{{ trans('recipe.new') }}</a></li>
+                                <li><a href="{{ url('/profile') }}">{{ trans('user.profile') }}</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('user.logout') }}</a></li>
                             </ul>
                         </li>
                     @endif

@@ -3,15 +3,15 @@
 @section('content')
     <h1>
         @if(Auth::user()->role === 1)
-            Redaktors:
+            {{ trans('user.editor') }}
         @else
-            Profils:
+            {{ trans('user.profileCol') }}
         @endif
             {{ $user->name }}
-            <a href="{{ url('profile/preferences') }}" class="btn btn-info">Iestatījumi</a>
+            <a href="{{ url('profile/preferences') }}" class="btn btn-info">{{ trans('user.settings') }}</a>
     </h1>
     <hr/>
-    <h2>Receptes:</h2>
+    <h2>{{ trans('user.recipes') }}</h2>
     @include('partials.recipesList')
 
 @stop

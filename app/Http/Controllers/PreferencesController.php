@@ -10,6 +10,12 @@ use tt2\Preference;
 
 class PreferencesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('locale');
+    }
+
     public function getPreference()
     {
         $user = Auth::user();
@@ -34,4 +40,5 @@ class PreferencesController extends Controller
 
         return redirect('profile');
     }
+
 }

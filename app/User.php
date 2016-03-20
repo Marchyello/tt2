@@ -2,8 +2,10 @@
 
 namespace tt2;
 
+use App;
 use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Session;
 
 class User extends Authenticatable
 {
@@ -52,5 +54,14 @@ class User extends Authenticatable
     public function isAdmin()
     {
         //Pārbauda vai lietotājam ir Admin loma
+    }
+
+    public function setLocale()
+    {
+        $language = Auth::user()->preferences->language;
+
+        /*Session::put('locale', $language);*/
+        App::setLocale($language);
+        /*dd(app()->getLocale());*/
     }
 }

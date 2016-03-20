@@ -16,7 +16,7 @@ class CreatePreferencesTable extends Migration
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('language')->default(0);
+            $table->string('language')->default('lv');
             $table->string('background')->default('#ffffff');
             $table->timestamps();
 

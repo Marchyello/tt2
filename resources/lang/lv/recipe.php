@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'new' => 'Jauna recepte',
+    'publishButton' => 'Publicēt',
+    'edit' => 'Labot recepti: ',
+    'editButton' => 'Labot recepti',
+    'delete' => 'Dzēst recepti',
+    'recipes' => 'Receptes',
+    'title' => 'Nosaukums:',
+    'description' => 'Recepte:',
+    'uploadImage' => 'Augšupielādēt attēlu',
+    'auth403' => 'Kļūda 403, nav atļauta piekļuve',
+    'unauth403' => 'Sasodīts, Sātan, jau atkal 403!',
+    'mmRecipes' => 'MM receptes',
+    'heading1' => 'Sveicināti vietnē "MM receptes"!',
+    'heading2' => 'Piedāvājam apskatei mūsu redaktora iecienītāko recepti. Pilnvērtīgai dalībai vietnē, lūdzam reģistrēties!',
+    'heading3' => 'Diētiskie kāpostu tīteņi',
+    'listed1' => '350 g maltas vistas filejas',
+    'listed2' => '130 g svaigu kāpostu',
+    'listed3' => '70 g rīsu',
+    'unlisted1' => 'Rīsus ber katlā, pārlej ar ūdeni tā, lai tas pārklāj tos 1,5 cm līmenī.',
+    'unlisted2' => 'Vistas fileju samaļ gaļas maļamajā mašīnā vai virtuves kombainā.',
+    'unlisted3' => 'Kāpostus sīki sagriež.',
+];

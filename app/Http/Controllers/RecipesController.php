@@ -14,6 +14,7 @@ class RecipesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => 'index']);
+        $this->middleware('locale');
     }
 
     public function suggested()
@@ -52,7 +53,7 @@ class RecipesController extends Controller
 
         Auth::user()->recipes()->save($recipe);
 
-        Session::flash('flash_message', 'Recepte pievienota');
+        Session::flash('flash_message', trans('flash.created'));
 
         return redirect('recipes');
     }
@@ -77,7 +78,7 @@ class RecipesController extends Controller
 
         $recipe->update($request->all());
 
-        Session::flash('flash_message', 'Recepte izlabota');
+        Session::flash('flash_message', trans('flash.updated'));
 
         return redirect('recipes');
     }
@@ -88,7 +89,7 @@ class RecipesController extends Controller
 
         $recipe->delete();
 
-        Session::flash('flash_message', 'Recepte izdzēsta');
+        Session::flash('flash_message', trans('flash.deleted'));
 
         return redirect('recipes');
     }

@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>
-        Labot recepti: {!! $recipe->title !!}
+        {{ trans('recipe.edit') }} {!! $recipe->title !!}
     </h1>
     <hr/>
     {!! Form::model($recipe, [
@@ -11,7 +11,7 @@
         'action' => ['RecipesController@update', $recipe->id],
         'files' => 'true',
     ]) !!}
-        @include('partials.form', ['buttonText' => 'Labot recepti'])
+        @include('partials.form', ['buttonText' => trans('recipe.editButton')])
     {!! Form::close() !!}
 
     <div class="text-right">
@@ -19,7 +19,7 @@
         'method' => 'DELETE',
         'action' => ['RecipesController@destroy', $recipe->id]
         ]) !!}
-            {!! Form::submit('Dzēst recepti?', ['class' => 'btn btn-danger']) !!}
+            {!! Form::submit(trans('recipe.delete'), ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
     </div>
 

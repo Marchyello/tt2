@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h1>Jauna recepte</h1>
+    <h1>{{ trans('recipe.new') }}</h1>
     <hr/>
 
     {!! Form::open([
@@ -10,7 +10,7 @@
         'files' => 'true',
         ]) !!}
     {!! csrf_field() !!}
-        @include('partials.form', ['buttonText' => 'Publicēt'])
+        @include('partials.form', ['buttonText' => trans('recipe.publishButton')])
     {!! Form::close() !!}
 
     @include('errors.list')

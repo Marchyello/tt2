@@ -1,16 +1,16 @@
 {!! csrf_field() !!}
 <div class="form-group">
-    {!! Form::label('title', 'Nosaukums:') !!}
+    {!! Form::label('title', trans('recipe.title')) !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('description', 'Recepte:') !!}
+    {!! Form::label('description', trans('recipe.description')) !!}
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {{ Form::label('image', 'Augšupielādēt attēlu') }}
+    {{ Form::label('image', trans('recipe.uploadImage')) }}
     {{ Form::file('image', null) }}
 </div>
 
