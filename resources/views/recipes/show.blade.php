@@ -4,7 +4,10 @@
 
     <h1>{{ $recipe->title }}</h1>
     <article>
-        {{ $recipe->description }}
+        <p>
+            {{ $recipe->description }}
+        </p>
+        <img src="/{{ $recipe->image }}">
     </article>
 
     <hr/>

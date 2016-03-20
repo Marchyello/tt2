@@ -41,7 +41,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="images/mmm.png" alt="MM Receptes">
+                    <img src="/images/mmm.png" alt="MM Receptes">
                 </a>
             </div>
 

@@ -3,6 +3,8 @@
 namespace tt2;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
 
 class Recipe extends Model
 {
@@ -38,6 +40,18 @@ class Recipe extends Model
             $excerpt = substr($description, 0, 40) . '...';
         }
         return $excerpt;
+    }
+
+    #Izveido jaunu attēlu no lietotāja attēla
+    public function generateImage()
+    {
+        $image = Input::file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $path = 'uploads/images/' . $filename;
+
+        Image::make($image->getRealPath())->resize(320, 180)->save($path);
+
+        return $path;
     }
 
 }

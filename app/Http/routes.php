@@ -34,11 +34,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    Route::resource('recipes', 'RecipesController');
 
     Route::get('profile', 'UsersController@index');
-    Route::resource('recipes', 'RecipesController');
     Route::get('exception', 'RecipesController@exception');
-    Route::get('else', 'RecipesController@about');
     Route::get('profile/preferences', 'PreferencesController@getPreference');
     Route::post('profile/preferences', 'PreferencesController@storePreference');
     Route::patch('profile/preferences', 'PreferencesController@updatePreference');

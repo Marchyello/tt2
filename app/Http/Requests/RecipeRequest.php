@@ -50,7 +50,9 @@ class RecipeRequest extends Request
      */
     public function rules()
     {
-        if (Auth::user()->role === 1){
+        $methods = $this->route()->getMethods();
+
+        if (Auth::user()->role === 1 || $methods[0] == 'DELETE'){
             return [];
         }
         else {

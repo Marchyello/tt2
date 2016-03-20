@@ -3,10 +3,10 @@
 namespace tt2\Http\Controllers;
 
 use Auth;
-use Illuminate\Http\Request;
 use Session;
 use tt2\Http\Requests;
 use tt2\Http\Requests\RecipeRequest;
+use tt2\Http\Requests\Request;
 use tt2\Recipe;
 
 class RecipesController extends Controller
@@ -45,6 +45,11 @@ class RecipesController extends Controller
         $recipe = new Recipe($request->all());
         $recipe->excerpt = Recipe::generateExcerpt($recipe->description);
 
+        if ($request->hasFile('image')){
+            $path = $recipe->generateImage($request);
+            $recipe->image = $path;
+        }
+
         Auth::user()->recipes()->save($recipe);
 
         Session::flash('flash_message', 'Recepte pievienota');
@@ -62,6 +67,11 @@ class RecipesController extends Controller
     public function update($id, RecipeRequest $request)
     {
         $recipe = Recipe::findOrFail($id);
+
+        if ($request->hasFile('image')){
+            $path = $recipe->generateImage($request);
+            $recipe->image = $path;
+        }
 
         $recipe->excerpt = Recipe::generateExcerpt($request->get('description'));
 
@@ -85,7 +95,7 @@ class RecipesController extends Controller
 
     public function exception()
     {
-        $customError = Requests\Request::getError();
+        $customError = Request::getError();
 
         return view('errors.exception')->with('customError', $customError);
     }

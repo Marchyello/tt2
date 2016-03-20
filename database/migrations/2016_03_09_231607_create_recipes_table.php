@@ -19,6 +19,7 @@ class CreateRecipesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('excerpt');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
