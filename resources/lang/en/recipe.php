@@ -15,7 +15,7 @@ return [
     'mmRecipes' => 'MM recipes',
     'heading1' => 'Welcome to "MM recipes"',
     'heading2' => 'Take a look at the favorite recipe of our editor. Please register to fully participate in the website!',
-    'heading3' => 'Diet cabbage joints',
+    'heading3' => 'Diet cabbage rolls',
     'listed1' => '350 g chicken fillet',
     'listed2' => '130 g fresh cabbage',
     'listed3' => '70 g rice',
